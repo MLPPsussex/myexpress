@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Node.js Server Example</title>
+</head>
+<body>
+    <h1>Data from Backend Server:</h1>
+    <div id="data-container"></div>
+    <script>
+        for (i=0;i<20; i++){
+        // Fetch data from the backend server
+        fetch('/api/data')
+            .then(response => response.json())
+            .then(data => {
+                const dataContainer = document.getElementById('data-container');
+                dataContainer.innerHTML = JSON.stringify(data);
+            });
+        }
+    </script>
+</body>
+</html>
