@@ -10,7 +10,7 @@ app.get('/api/data', (req, res) => {
     count++
     const data = { message: 'Hello!'+count };
 
-    setTimeout( ()=>res.json(data), 2000);
+    setTimeout( ()=>res.json(data), 100*count);
 });
 
 // Start the server
