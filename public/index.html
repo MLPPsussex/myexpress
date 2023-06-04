@@ -4,14 +4,19 @@
     <title>Node.js Server Example</title>
 </head>
 <body>
-    <h1>Data from Backend Server:</h1>
+    <h1>Data from Backend1:</h1>
     <div id="data-container"></div>
     <script>
-        var r=4+Math.floor( 6*Math.random() )
-        for (i=0;i<r; i++){
-        // Fetch data from the backend server
-        fetch('/api/data')
-            .then(response => response.json())
+    alert('Starting');
+    const opts = {
+    method: 'POST',
+    headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+  },
+body: JSON.stringify({prom: 'cat'})
+};
+        fetch('/api/data',opts)
             .then(data => {
                 const dataContainer = document.getElementById('data-container');
                 dataContainer.innerHTML = JSON.stringify(data);
