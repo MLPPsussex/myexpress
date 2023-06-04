@@ -4,10 +4,13 @@
     <title>Node.js Server Example</title>
 </head>
 <body>
-    <h1>Data from Backend1:</h1>
+    <h1>Data from Backend2:</h1>
     <div id="data-container"></div>
     <script>
     alert('Starting');
+setTimeout(getSeries,1000)
+
+function getSeries()
     const opts = {
     method: 'POST',
     headers: {
@@ -21,7 +24,9 @@ body: JSON.stringify({prom: 'cat'})
                 const dataContainer = document.getElementById('data-container');
                 dataContainer.innerHTML = JSON.stringify(data);
             });
-        }
+   
+}
+
     </script>
 </body>
 </html>
