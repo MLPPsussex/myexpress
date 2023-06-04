@@ -8,7 +8,8 @@
     <div id="data-container"></div>
     <script>
     alert('Starting');
-setTimeout(getSeries,1000)
+getCount()        
+setTimeout(getSeries,3000)
 
 function getSeries(){
     const opts = {
@@ -19,13 +20,24 @@ function getSeries(){
   },
 body: JSON.stringify({prom: 'cat'})
 };
-        fetch('/api/data',opts)
+        fetch('/series',opts)
             .then(data => {
                 const dataContainer = document.getElementById('data-container');
                 dataContainer.innerHTML = JSON.stringify(data);
             });
    
 }
+        
+  function getCount(){
+    
+        fetch('/count')
+            .then(data => {
+                const dataContainer = document.getElementById('data-container');
+                dataContainer.innerHTML = JSON.stringify(data);
+            });
+   
+}
+
 
     </script>
 </body>
