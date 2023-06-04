@@ -5,15 +5,13 @@ var count=0
 app.use(express.static('public'));
 
 // Define an API endpoint to retrieve data
-app.get('/api/data', (req, res) => {
-    // Simulated data from the backend server
+app.get('/count', (req, res) => {
     count++
     const data = { message: 'Hello!'+count };
-
-    setTimeout( ()=>res.json(data), 100);
+    res.send(data);
 });
 
-app.post('/api/data', (req, res) => {
+app.post('/series', (req, res) => {
   var leoApiKey='693a5c60-f266-4bf7-934f-3db55cd5c5f6'
   const option1 = {
   method: 'POST',
@@ -34,7 +32,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
        )
   .catch(err => {res.json( {id: 'APIerror'}) } );
      
-}
+});
 
 
 // Start the server
